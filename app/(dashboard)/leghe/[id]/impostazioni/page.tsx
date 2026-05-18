@@ -205,5 +205,3 @@ export default function ImpostazioniPage() {
     </div>
   )
 }
-
-import { Save } from 'lucide-react'
