@@ -1,0 +1,28 @@
+truncate table public.giocatori restart identity cascade;
+
+insert into public.giocatori (nome, cognome, ruolo, nazionalita, quotazione) values
+('Alisson','Becker','POR','🇧🇷 Brasile',18),('Emiliano','Martínez','POR','🇦🇷 Argentina',20),
+('Mike','Maignan','POR','🇫🇷 Francia',20),('Gianluigi','Donnarumma','POR','🇮🇹 Italia',20),
+('Jordan','Pickford','POR','🏴󠁧󠁢󠁥󠁮󠁧󠁿 Inghilterra',16),('Unai','Simón','POR','🇪🇸 Spagna',16),
+('Diogo','Costa','POR','🇵🇹 Portogallo',18),('Bart','Verbruggen','POR','🇳🇱 Olanda',16),
+('Marquinhos','Marquinhos','DIF','🇧🇷 Brasile',22),('Rúben','Dias','DIF','🇵🇹 Portogallo',28),
+('Virgil','van Dijk','DIF','🇳🇱 Olanda',28),('William','Saliba','DIF','🇫🇷 Francia',25),
+('Alessandro','Bastoni','DIF','🇮🇹 Italia',24),('Trent','Alexander-Arnold','DIF','🏴󠁧󠁢󠁥󠁮󠁧󠁿 Inghilterra',26),
+('Antonio','Rüdiger','DIF','🇩🇪 Germania',22),('Alejandro','Grimaldo','DIF','🇪🇸 Spagna',22),
+('Cristian','Romero','DIF','🇦🇷 Argentina',22),('João','Cancelo','DIF','🇵🇹 Portogallo',22),
+('Jude','Bellingham','CEN','🏴󠁧󠁢󠁥󠁮󠁧󠁿 Inghilterra',48),('Pedri','González','CEN','🇪🇸 Spagna',36),
+('Nicolò','Barella','CEN','🇮🇹 Italia',30),('Bruno','Fernandes','CEN','🇵🇹 Portogallo',32),
+('Florian','Wirtz','CEN','🇩🇪 Germania',38),('Jamal','Musiala','CEN','🇩🇪 Germania',40),
+('Phil','Foden','CEN','🏴󠁧󠁢󠁥󠁮󠁧󠁿 Inghilterra',38),('Frenkie','de Jong','CEN','🇳🇱 Olanda',30),
+('Bruno','Guimarães','CEN','🇧🇷 Brasile',25),('Enzo','Fernández','CEN','🇦🇷 Argentina',28),
+('Rodrigo','De Paul','CEN','🇦🇷 Argentina',20),('Dani','Olmo','CEN','🇪🇸 Spagna',28),
+('Lionel','Messi','ATT','🇦🇷 Argentina',55),('Kylian','Mbappé','ATT','🇫🇷 Francia',52),
+('Vinicius','Junior','ATT','🇧🇷 Brasile',45),('Harry','Kane','ATT','🏴󠁧󠁢󠁥󠁮󠁧󠁿 Inghilterra',42),
+('Lamine','Yamal','ATT','🇪🇸 Spagna',42),('Lautaro','Martínez','ATT','🇦🇷 Argentina',38),
+('Cristiano','Ronaldo','ATT','🇵🇹 Portogallo',48),('Rafael','Leão','ATT','🇵🇹 Portogallo',35),
+('Julian','Álvarez','ATT','🇦🇷 Argentina',35),('Bukayo','Saka','ATT','🏴󠁧󠁢󠁥󠁮󠁧󠁿 Inghilterra',36),
+('Antoine','Griezmann','ATT','🇫🇷 Francia',35),('Marcus','Thuram','ATT','🇫🇷 Francia',28),
+('Cody','Gakpo','ATT','🇳🇱 Olanda',28),('Raphinha','Raphinha','ATT','🇧🇷 Brasile',30),
+('Endrick','Endrick','ATT','🇧🇷 Brasile',22),('Federico','Chiesa','ATT','🇮🇹 Italia',28),
+('Gianluca','Scamacca','ATT','🇮🇹 Italia',24),('Christian','Pulisic','ATT','🇺🇸 USA',28),
+('Kai','Havertz','ATT','🇩🇪 Germania',30),('Nico','Williams','ATT','🇪🇸 Spagna',35);

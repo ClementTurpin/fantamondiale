@@ -1,0 +1,16 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root { --font-geist: system-ui, sans-serif; }
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-in { animation: fadeIn 0.3s ease both; }
+
+.campo-pattern {
+  background-color: #166534;
+  background-image: repeating-linear-gradient(0deg, transparent, transparent 40px, rgba(0,0,0,.06) 40px, rgba(0,0,0,.06) 80px);
+}
