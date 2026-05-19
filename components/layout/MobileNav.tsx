@@ -1,49 +1,49 @@
-'use client'
+import type { Metadata } from 'next'
+import './globals.css'
 
-import Link from 'next/link'
-import { usePathname } from 'next/navigation'
-import { LayoutDashboard, Users, ShoppingCart, Shield, BarChart3, Trophy } from 'lucide-react'
-import { cn, getInitials } from '@/lib/utils'
-import type { Profile } from '@/lib/types/database.types'
+export const metadata: Metadata = {
+  title: { default: 'FantaMondiale', template: '%s | FantaMondiale' },
+  description: 'Il fantasy football del Mondiale 2026.',
+}
 
-const nav = [
-  { href: '/dashboard',  icon: LayoutDashboard, label: 'Home' },
-  { href: '/leghe',      icon: Users,            label: 'Leghe' },
-  { href: '/mercato',    icon: ShoppingCart,     label: 'Mercato' },
-  { href: '/squadra',    icon: Shield,           label: 'Rosa' },
-  { href: '/classifica', icon: BarChart3,        label: 'Classifica' },
-]
-
-export default function MobileNav({ profile }: { profile: Profile | null }) {
-  const pathname = usePathname()
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <>
-      <header className="md:hidden flex items-center justify-between px-4 h-14 bg-white dark:bg-[#161b22] border-b border-gray-200 dark:border-gray-800 shrink-0">
-        <Link href="/dashboard" className="flex items-center gap-2">
-          <div className="w-7 h-7 rounded-lg bg-green-500 flex items-center justify-center">
-            <Trophy size={13} className="text-white" />
-          </div>
-          <span className="font-bold text-sm tracking-tight">FantaMondiale</span>
-        </Link>
-        <div className="w-8 h-8 rounded-full bg-green-100 flex items-center justify-center text-xs font-bold text-green-700">
-          {profile?.username ? getInitials(profile.username) : '?'}
-        </div>
-      </header>
-
-      <nav className="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-white dark:bg-[#161b22] border-t border-gray-200 dark:border-gray-800 flex">
-        {nav.map(({ href, icon: Icon, label }) => {
-          const active = pathname === href || (href !== '/dashboard' && pathname.startsWith(href))
-          return (
-            <Link key={href} href={href} className={cn(
-              'flex-1 flex flex-col items-center justify-center gap-0.5 py-2.5 text-[10px] font-medium transition-colors',
-              active ? 'text-green-600 dark:text-green-400' : 'text-gray-400'
-            )}>
-              <Icon size={20} />{label}
-            </Link>
-          )
-        })}
-      </nav>
-      <div className="md:hidden h-16" />
-    </>
+    <html lang="it" suppressHydrationWarning>
+      <head>
+        {/* Google Fonts — Bebas Neue per titoli, DM Sans per body */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800;0,9..40,900;1,9..40,400&display=swap" rel="stylesheet" />
+        <style>{`
+          :root {
+            --font-display: 'Bebas Neue', system-ui;
+            --font-body: 'DM Sans', system-ui;
+          }
+          * { box-sizing: border-box; }
+          body {
+            font-family: var(--font-body);
+            background: #080d1a;
+            color: white;
+            margin: 0;
+          }
+          /* Scrollbar */
+          ::-webkit-scrollbar { width: 4px; }
+          ::-webkit-scrollbar-track { background: transparent; }
+          ::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 2px; }
+          ::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.2); }
+          /* Selection */
+          ::selection { background: rgba(245,158,11,0.3); color: white; }
+        `}</style>
+      </head>
+      <body className="antialiased" style={{
+        background: '#080d1a',
+        backgroundImage: `
+          radial-gradient(ellipse at 20% 0%, rgba(56,189,248,0.04) 0%, transparent 50%),
+          radial-gradient(ellipse at 80% 100%, rgba(245,158,11,0.04) 0%, transparent 50%)
+        `
+      }}>
+        {children}
+      </body>
+    </html>
   )
 }
