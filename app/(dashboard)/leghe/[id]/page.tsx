@@ -1,6 +1,6 @@
 import { createClient } from '@/lib/supabase/server'
 import { redirect } from 'next/navigation'
-import { Trophy, ArrowLeft, Users, Settings } from 'lucide-react'
+import { Trophy, ArrowLeft, Users, Settings, Gavel } from 'lucide-react'
 import Link from 'next/link'
 import CopyButton from './CopyButton'
 
@@ -76,6 +76,21 @@ export default async function LegaDetailPage({ params }: { params: Promise<{ id:
           ))}
         </div>
       </div>
+
+      {/* Link asta */}
+      <Link href={`/leghe/${id}/asta`}
+        className="flex items-center justify-between bg-white dark:bg-[#161b22] rounded-xl border border-gray-200 dark:border-gray-800 p-4 hover:border-green-300 transition-colors group">
+        <div className="flex items-center gap-3">
+          <div className="w-9 h-9 rounded-lg bg-green-50 flex items-center justify-center">
+            <Gavel size={16} className="text-green-600" />
+          </div>
+          <div>
+            <p className="font-medium text-sm text-gray-900 dark:text-white">Asta lega</p>
+            <p className="text-xs text-gray-400">Compra e vendi giocatori tramite aste in tempo reale</p>
+          </div>
+        </div>
+        <ArrowLeft size={16} className="text-gray-300 group-hover:text-green-500 rotate-180 transition-colors" />
+      </Link>
 
       {/* Link mercato */}
       <Link href="/mercato"
